@@ -1,5 +1,7 @@
 /** Minimal typed API client with automatic token refresh. */
-const BASE = "/api/v1";
+const BASE: string = import.meta.env.VITE_API_BASE ?? "/api/v1";
+/** Exported so the WebSocket hook can target the same host. */
+export const API_BASE = BASE;
 
 let accessToken: string | null = localStorage.getItem("cg_access");
 let refreshToken: string | null = localStorage.getItem("cg_refresh");

@@ -3,7 +3,7 @@
  * so the dashboard degrades gracefully. */
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
-import { getAccessToken } from "../api/client";
+import { API_BASE, getAccessToken } from "../api/client";
 
 export interface WsEvent {
   type: string;
@@ -27,8 +27,13 @@ export function useLiveEvents(onEvent?: (e: WsEvent) => void) {
     const connect = () => {
       const token = getAccessToken();
       if (!token || closed) return;
-      const proto = location.protocol === "https:" ? "wss" : "ws";
-      ws = new WebSocket(`${proto}://${location.host}/api/v1/ws?token=${token}`);
+      // When API_BASE is absolute (hosted frontend), connect to that host;
+      // otherwise use the current origin (local dev proxy).
+      const apiUrl = API_BASE.startsWith("http") ? new URL(API_BASE) : null;
+      const wsHost = apiUrl ? apiUrl.host : location.host;
+      const secure = apiUrl ? apiUrl.protocol === "https:" : location.protocol === "https:";
+      const proto = secure ? "wss" : "ws";
+      ws = new WebSocket(`${proto}://${wsHost}/api/v1/ws?token=${token}`);
       ws.onopen = () => { attempts = 0; setConnected(true); };
       ws.onmessage = (msg) => {
         try {
