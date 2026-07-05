@@ -3,14 +3,25 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "/chronosgrid/",
+
   plugins: [react()],
+
   server: {
     port: 5173,
     proxy: {
-      "/api": { target: "http://localhost:8000", changeOrigin: true, ws: true },
-      "/metrics": { target: "http://localhost:8000", changeOrigin: true },
+      "/api": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+        ws: true,
+      },
+      "/metrics": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+      },
     },
   },
+
   test: {
     environment: "jsdom",
     globals: true,
