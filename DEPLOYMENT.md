@@ -2,7 +2,7 @@
 
 Live setup: **backend on Render (free)** + **frontend on GitHub Pages (via GitHub Actions)**.
 
-- Frontend live URL: https://renukaramesh2327.github.io/chronosgrid/
+- Frontend live URL: https://kaniska03.github.io/chronosgrid/
 - Backend live URL: shown by Render after deploy (e.g. `https://chronosgrid-api.onrender.com`)
 - Demo login: `demo@chronosgrid.dev` / `Demo@1234`
 
@@ -27,7 +27,7 @@ git config --global user.email "renukaramesh.2306@gmail.com"
 
 ## Step 1 — Create the GitHub repository
 
-1. Go to https://github.com/new (log in as **renukaramesh2327**).
+1. Go to https://github.com/new (log in as **kaniska03**).
 2. Repository name: **chronosgrid**
 3. Visibility: **Public** (required for free GitHub Pages).
 4. Do **NOT** tick "Add a README" or any other initialization option.
@@ -38,12 +38,12 @@ git config --global user.email "renukaramesh.2306@gmail.com"
 In PowerShell:
 
 ```powershell
-cd "C:\Users\renuk\OneDrive\Desktop\Intern Assignment Distributed Job Scheduler\chronosgrid"
+cd "C:\Users\kanis\.gemini\antigravity\scratch\chronosgrid"
 git init
 git add .
 git commit -m "ChronosGrid: distributed job scheduler with deployment setup"
 git branch -M main
-git remote add origin https://github.com/renukaramesh2327/chronosgrid.git
+git remote add origin https://github.com/kaniska03/chronosgrid.git
 git push -u origin main
 ```
 
@@ -56,7 +56,7 @@ A browser window opens for GitHub sign-in on the first push — approve it.
 3. Go to the **Actions** tab. The "Deploy frontend to GitHub Pages" workflow runs on every push. If the first run failed (Pages wasn't enabled yet), click it → **Re-run all jobs**.
 
 When it finishes, the frontend is live at:
-**https://renukaramesh2327.github.io/chronosgrid/**
+**https://kaniska03.github.io/chronosgrid/**
 
 ## Step 4 — Deploy the backend on Render
 
@@ -77,7 +77,7 @@ Only needed if the Render URL is **not** exactly `https://chronosgrid-api.onrend
 
 ## Step 6 — Test
 
-1. Open https://renukaramesh2327.github.io/chronosgrid/
+1. Open https://kaniska03.github.io/chronosgrid/
 2. Log in with `demo@chronosgrid.dev` / `Demo@1234`.
 
 ## Notes & limitations (free tier)

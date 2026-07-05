@@ -17,7 +17,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: https://renukaramesh2327.github.io
+        value: https://kaniska03.github.io
       - key: WORKER_CAPACITY
         value: "5"
       - key: WORKER_TAGS
